@@ -27,7 +27,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="main_blog_details">
-                        <img class="img-fluid" src="img/blog/blog4.png" alt="Blog image">
+                      {% if post.image_url %}
+                        <img class="img-fluid" src="{{ post.image_url }}" alt="Post image">
+                      {% else %}
+                                    <img class="img-fluid"
+                                         src="{% static 'img/banner/blog.png' %}"
+                                         alt="Blog banner">
+                                {% endif %}
                         <h4>{{ post.title }}</h4>
                         <div class="user_details">
                             <div class="mt-sm-0 mt-3">
@@ -41,8 +47,8 @@
                         </div>
                         <p>{{ post.text }}</p>
                         <div class="news_d_footer flex-column flex-sm-row">
-                            <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color:red"></i></span>{{ post.likes_amount }}</a>
-                            <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }}</a>
+                            <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color:red"></i></span>{{ post.likes_amount }} Likes</a>
+                            <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
                             <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -52,7 +58,7 @@
                         </div>
                     </div>
                     <div class="comments-area">
-                        <h4>{{ post.comments|length }}</h4>
+                        <h4>{{ post.comments|length }} Comments</h4>
                         <div class="comment-list">
                             {% for comment in post.comments %}
                                 <div class="single-comment justify-content-between d-flex">

@@ -3,7 +3,7 @@
 {% block title %}<title>Sensive - Home</title>{% endblock %}
 {% block content %}
     <!--================ Hero sm Banner start =================-->
-    <section class="mb-30px">
+     <section class="mb-30px">
         <div class="container">
             <div class="hero-banner hero-banner--sm">
                 <div class="hero-banner__content">
@@ -69,13 +69,13 @@
                                 {% endif %}
                                 <ul class="thumb-info" style="max-width: 550px;">
                                     <li>
-                                        <a href="#"><i class="ti-user"></i>{{ post.author }}</a>
+                                        <a href="{{ post.author }}"><i class="ti-user"></i>{{ post.author }}</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="ti-notepad"></i>{{ post.published_at }}</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="ti-themify-favicon"></i>{{ post.comments_amount }}</a>
+                                        <a href="#"><i class="ti-themify-favicon"></i>{{ post.comments_amount }} Comments</a>
                                     </li>
                                 </ul>
                             </div>
